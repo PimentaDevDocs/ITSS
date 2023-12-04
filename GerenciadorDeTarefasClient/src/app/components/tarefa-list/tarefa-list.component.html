@@ -1,0 +1,50 @@
+<mat-card>
+
+  <mat-toolbar color="primary">Tarefas cadastradas</mat-toolbar>
+
+
+  <mat-table mat-table [dataSource]="tarefas" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="titulo">
+      <mat-header-cell *matHeaderCellDef> Titulo</mat-header-cell>
+      <mat-cell *matCellDef="let tarefa"> {{tarefa.titulo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="descricao">
+      <mat-header-cell *matHeaderCellDef> Descrição</mat-header-cell>
+      <mat-cell *matCellDef="let tarefa"> {{tarefa.descricao}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="prioridade">
+      <mat-header-cell *matHeaderCellDef> Prioridade</mat-header-cell>
+      <mat-cell *matCellDef="let tarefa"> {{tarefa.prioridade | prioridadeToText}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+      <mat-cell *matCellDef="let tarefa"> {{tarefa.status | statusToText}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button (click)="onAdd()" mat-mini-fab color="accent" aria-label="Adicionar uma tarefa">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let tarefa">
+        <button (click)="onEdit(tarefa)" mat-icon-button color="primary" aria-label="Alterar uma tarefa">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="onDelete(tarefa.id)" mat-icon-button color="warn" aria-label="Remover uma tarefa">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</mat-card>
+

@@ -1,0 +1,43 @@
+### Send POST request with json body
+POST localhost:8080/api/tarefas
+Content-Type: application/json
+
+[
+  {
+    "titulo": "Tarefa 4",
+    "descricao": "Descrição da Tarefa 4",
+    "prioridade": "Descrição da Tarefa 4",
+    "status": true
+  },
+  {
+    "titulo": "Tarefa 5",
+    "descricao": "Descrição da Tarefa 5",
+    "prioridade": "Descrição da Tarefa 5",
+    "status": true
+  },
+  {
+    "titulo": "Tarefa 6",
+    "descricao": "Descrição da Tarefa 6",
+    "prioridade": "Descrição da Tarefa 6",
+    "status": true
+  }
+]
+
+### Send POST request with json body
+POST localhost:8080/api/tarefas
+Content-Type: application/json
+
+{
+  "titulo": "Tarefa 666",
+  "descricao": "Descrição da Tarefa 6",
+  "prioridade": "Descrição da Tarefa 6",
+  "status": true
+}
+
+### GET request with a header
+GET localhost:8080/api/tarefas
+Accept: application/json
+
+### GET request with parameter
+GET localhost:8080/api/tarefas/searchByTitulo?titulo=4
+Accept: application/json
